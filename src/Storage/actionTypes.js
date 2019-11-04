@@ -1,0 +1,2 @@
+export const NEWS_RECEIVED = "NEWS_RECEIVED";
+export const FONT_CHANGED = "FONT_CHANGED";
