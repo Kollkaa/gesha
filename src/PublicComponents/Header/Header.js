@@ -5,6 +5,9 @@ import NavBar from "./NavBar";
 import {getNavLinks} from "../../api/queries";
 import {generateNavLinksAction} from "../../Storage/NavSideLinksStorage/actions";
 import {connect} from 'react-redux'
+import Links from "./Links";
+import SearchField from "./SerachField";
+import DisabledFeatures from "./DisabledFeatures";
 
 class Header extends Component{
     componentDidMount() {
@@ -17,17 +20,14 @@ class Header extends Component{
 
         return(
             <Container>
-                <LogoImgWrapper>
-                    <LogoImg src={GShImg}/>
-                </LogoImgWrapper>
                 <SearchFiledWrapper>
-                    search
+                    <SearchField/>
                 </SearchFiledWrapper>
                 <DisabledOptionsWrapper>
-                    disabled
+                    <DisabledFeatures/>
                 </DisabledOptionsWrapper>
                 <LinksWrapper>
-                    links
+                    <Links/>
                 </LinksWrapper>
                 <NavMenuWrapper>
                     <NavBar navLinks={this.props.navLinks}/>
@@ -52,30 +52,36 @@ const mapDispatchToProps = dispatch => {
 export default connect(mapStateToProps, mapDispatchToProps)(Header)
 
 const Container = styled.div`
-    background-color: #97a1ff;
+    background: white;
+    box-shadow: 0 1px 4px 1px black;
     display: grid;
-    
+    position: relative;
+    z-index: 1;
+    font-size: 1em;
+   
     @media screen and (min-width: 1281px){
+        grid-gap: 10px;
         grid-template: 
           ". . . . . . ." 10px
-          ". i s d l l ." 50px
-          ". i . . . . ." 60px
-          ". i n n n n ." 50px
-          ". . . . . . ." 10px / 1fr 160px 280px 250px 300px 300px 1fr;
+          ". d . s . l ." minmax(0, max-content)
+          ". n n n n n ." minmax(0, max-content)
+          ". . . . . . ." 10px / 1fr 160px 200px 200px 200px 250px 1fr;
     }
     
     @media screen and (min-width: 769px) and (max-width: 1280px){
+        font-size: 0.8em;
+    
+        grid-gap: 10px;
         grid-template: 
-          ". . . . . ." 10px
-          ". i s d l ." 30px
-          ". i . . . ." 100px
-          ". n n n n ." 30px
-          ". . . . . ." 10px / 1fr 160px 200px 250px 350px 1fr;
+          ". . . . ." 10px
+          ". d s l ." minmax(0, max-content)
+          ". n n n ." minmax(0, max-content)
+          ". . . . ." 10px / 1fr 259px 250px 260px 1fr;
     }
     
     @media screen and (max-width: 768px){
         grid-template: 
-          "s . n" 40px / 40px 1fr 40px;
+          "s . n" minmax(0, max-content) / 160px 1fr 40px;
     }
 `;
 

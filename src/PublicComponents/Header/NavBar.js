@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import styled from 'styled-components';
 import BurgerImg from '../../../public/imgs/iconfinder_Menu_4473024.svg';
+import {BrowserRouter, Link} from "react-router-dom";
 
 export default class NavBar extends Component{
     constructor(props){
@@ -51,7 +52,7 @@ export default class NavBar extends Component{
                     <NavBarDropdownItemContainer active={active}>
 
                         {el.menutabs.map((el, index) => (
-                            <NavBarDropdownItem key={index} href={el.href}>{el.title}</NavBarDropdownItem>
+                            <NavBarDropdownItem><Link key={index} to={el.href}>{el.title}</Link></NavBarDropdownItem>
                         ))}
 
                     </NavBarDropdownItemContainer>
@@ -70,7 +71,6 @@ export default class NavBar extends Component{
                 <NavBarDropdownWrapper opened={this.state.opened}>
 
                     {this.renderDropdowns(this.props.navLinks)}
-
                 </NavBarDropdownWrapper>
 
             </NavBarContainer>
@@ -79,11 +79,7 @@ export default class NavBar extends Component{
 }
 
 const NavBarContainer = styled.div`
-    background-color: transparent;
-   
-    @media screen and (max-width: 768px){
-        
-    }
+    background-color: transparent; 
 `;
 
 const NavBarToggle = styled.img`
@@ -117,22 +113,64 @@ const NavBarDropdownWrapper = styled.div`
 `;
 
 const NavDropdownTitle = styled.div`
-    background-color: ${props => props.active ? "#2c2c2c" : "transparent"};
+    padding: 5px;
+    cursor: default;
+    position: relative;
+    font-weight: bolder;
+    font-size: 1rem;
+    
+    :hover{
+        z-index: 1;
+    }
 `;
 
 const NavBarDropdown = styled.span`
-    padding: 1px;
+    
 `;
 
 const NavBarDropdownItemContainer = styled.div`
     position: absolute;
     display: ${props => props.active ? "inline-block" : "none"};
+    cursor: pointer;
+    background-color: white;
+    
+    @media screen and (min-width: 769px){
+        box-shadow: 3px 3px 10px 1px black;
+    }
     
     @media screen and (max-width: 768px){
         position: relative;
+        width: 100%;
     }
 `;
 
-const NavBarDropdownItem = styled.a`
+const NavBarDropdownItem = styled.div`
     display: block;
+    position: relative;
+    padding: 10px;
+    font-size: 1rem;
+    
+    > a{
+        text-decoration: none;
+        color: black;
+    }
+    
+    :hover{
+            background-color: #ebebeb;
+    }
+    
+    /*:after{
+        position: absolute;
+        content: "";
+        width: 0;
+        background-color: black;
+        height: 1px;        
+        display: block;
+        bottom: 0;
+        transition: width 200ms ease-in;
+    }
+    
+    :hover:after{
+        width: 100%;
+    }*/
 `;

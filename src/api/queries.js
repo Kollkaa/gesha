@@ -4,12 +4,13 @@ export let getNavLinks = async () => {
     let response = await fetch(NAV_LINKS_URL);
     let links = await response.json();
 
-    return links || [];
+    return links.sort((a, b) => a.order - b.order) || [];
 };
 
 export let getSideLinks = async () => {
     let response = await fetch(SIDE_LINKS_URL);
     let links = await response.json();
 
-    return links || [];
+    return links.sort((a, b) => a.order - b.order) || [];
 };
+
