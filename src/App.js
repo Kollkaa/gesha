@@ -5,12 +5,11 @@ import Header from "./PublicComponents/Header/Header";
 import Footer from "./PublicComponents/Footer";
 import Background from "../public/imgs/General_Staff_of_the_Ukrainian_Armed_Forces.svg.png";
 import styled from "styled-components";
+import NotFoundPage from "./Pages/NotFoundPage";
 
 class App extends Component {
   render() {
     return (
-        <Fragment>
-
             <BrowserRouter>
                 <Header/>
 
@@ -22,14 +21,12 @@ class App extends Component {
                     <Route exact path={"/info-page/:id"}/>
                     <Route exact path={"/minimized"}/>
 
-                    <Route path={"*"}/> {/*if Not found page*/}
+                    <Route path={"*"} component={NotFoundPage}/> {/*if Not found page*/}
                 </Switch>
 
                 <Footer/>
 
             </BrowserRouter>
-
-        </Fragment>
     );
   }
 }

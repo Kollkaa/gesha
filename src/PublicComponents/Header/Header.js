@@ -56,7 +56,7 @@ const Container = styled.div`
     box-shadow: 0 1px 4px 1px black;
     display: grid;
     position: relative;
-    z-index: 1;
+    z-index: 5;
     font-size: 1em;
    
     @media screen and (min-width: 1281px){

@@ -52,7 +52,7 @@ export default class NavBar extends Component{
                     <NavBarDropdownItemContainer active={active}>
 
                         {el.menutabs.map((el, index) => (
-                            <NavBarDropdownItem><Link key={index} to={el.href}>{el.title}</Link></NavBarDropdownItem>
+                            <Link key={index} to={el.href} style={{textDecoration: "none", color: "black"}}><NavBarDropdownItem>{el.title}</NavBarDropdownItem></Link>
                         ))}
 
                     </NavBarDropdownItemContainer>
@@ -120,7 +120,7 @@ const NavDropdownTitle = styled.div`
     font-size: 1rem;
     
     :hover{
-        z-index: 1;
+    
     }
 `;
 
@@ -149,6 +149,7 @@ const NavBarDropdownItem = styled.div`
     position: relative;
     padding: 10px;
     font-size: 1rem;
+    transition: 400ms;
     
     > a{
         text-decoration: none;
@@ -158,19 +159,4 @@ const NavBarDropdownItem = styled.div`
     :hover{
             background-color: #ebebeb;
     }
-    
-    /*:after{
-        position: absolute;
-        content: "";
-        width: 0;
-        background-color: black;
-        height: 1px;        
-        display: block;
-        bottom: 0;
-        transition: width 200ms ease-in;
-    }
-    
-    :hover:after{
-        width: 100%;
-    }*/
 `;

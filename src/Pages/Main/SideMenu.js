@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import styled from "styled-components";
 import {Link} from "react-router-dom";
-import TestImg from "../../../public/imgs/artage-io-thumb-56b729da42330240471c366f0fdef485.png"
+import TestImg from "../../../public/imgs/artage-io-thumb-56b729da42330240471c366f0fdef485.png";
 
 class SideMenu extends Component{
     constructor(props) {
@@ -15,7 +15,7 @@ class SideMenu extends Component{
             return(
                 <Link style={{textDecoration: "none"}} to={link.href}>
                     <UsefulLinksItem>
-                        <UsefulLinkStyler>{link.title}</UsefulLinkStyler>
+                        <UsefulLinkDescription>{link.title}</UsefulLinkDescription>
                         <UsefulLinkImg src={TestImg}/>
                     </UsefulLinksItem>
                 </Link>
@@ -71,23 +71,25 @@ const UsefulLinksItemsContainer = styled.div`
 `;
 
 const UsefulLinksItem = styled.div`
+    background-color: rgba(235,235,235,0.5);
     display: flex;
     height: 100px;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
     padding: 10px;
-    background-color: rgba(235,235,235,0.76);
     margin-top: 10px;
-    opacity: 0.8;
+    transition: 500ms;
+    box-shadow: 2px 2px 5px 2px black;
     
     :hover{
-        background-color: rgba(235,235,235,1);
-        opacity: 1;
+        box-shadow: 2px 2px 15px 2px black;
+        transform: scale(1.1);
     }
 `;
 
-const UsefulLinkStyler = styled.span`
+const UsefulLinkDescription = styled.span`
     font-size: 1em;
+    margin: 0 10px;
     color: black;
 `;
 

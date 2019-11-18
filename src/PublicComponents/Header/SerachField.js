@@ -8,7 +8,7 @@ class SearchField extends Component{
         return(
             <SearchFieldContainer>
                 <SearchInput placeholder={"Пошуковий запит"}/>
-                <SearchButton><FontAwesomeIcon icon={faSearch} size={"2x"}/></SearchButton>
+                <SearchButton><FontAwesomeIcon icon={faSearch}/></SearchButton>
             </SearchFieldContainer>
         )
     }
@@ -46,18 +46,20 @@ const SearchInput = styled.input`
     outline: none;
     background-color: #d9d9d9;
     padding: 5px;
-    transition: 1s;
-    border-radius: 2px;
+    box-shadow: 0 0 5px 1px rgb(171,173,163);
+    border-radius: 3px;
     
     ::placeholder{
         opacity: 0.8;
     }
-    
-    :focus{
-        box-shadow: 0 0 5px 1px rgb(171,173,163);
-    }
 `;
 
 const SearchButton = styled.div` 
+    padding: 5px;
+    border-radius: 3px;
+    background-color: #d9d9d9;
+    color: white;
     cursor: pointer;
+    font-size: 15px;
+    box-shadow: 0 0 5px 1px rgb(171,173,163);
 `;

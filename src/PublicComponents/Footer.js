@@ -13,5 +13,5 @@ export default class Footer extends Component{
 
 const Container = styled.div`
     background-color: #2c2c2c;
-    height: 400px;
+    height: 300px;
 `;

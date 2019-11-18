@@ -8,4 +8,5 @@ html, body{
 body{
     font-size: 14px;
     min-width: 480px;
+    overflow-x: hidden;
 }
